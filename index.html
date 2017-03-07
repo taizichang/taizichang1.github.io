@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>立体旋转爱心</title>
+<style>
+body{background-color:black;perspective:800px;}
+.canv{
+position:relative;
+width:100px;
+height:160px;
+margin:200px auto;
+animation:rot 10s linear infinite;
+transform-style:preserve-3d;
+}
+@keyframes rot{
+from{transform:rotateY(0) rotateX(0);}
+to{transform:rotateY(360deg) rotateX(360deg);}
+}
+.son{
+position:absolute;
+left:0;top:0;
+width:100px;
+height:160px;
+border:1px solid red;
+border-radius:50% 50% 0/40% 50% 50%;
+border-width:1px 1px 0 0;
+}
+.cupe{
+position:relative;
+width:60px;
+height:60px;
+transform-style:preserve-3d;
+transform:translateY(50px) translateX(20px) translateZ(30px);
+}
+.cupe div{
+position:absolute;
+color:white;
+width:100%;
+height:100%;
+left:0;top:0;
+background-size:cover;
+}
+.cupe div:nth-child(1){
+background-image:url(images/1.jpg);
+top:-60px;
+transform-origin:bottom;
+transform: rotateX(90deg);
+}
+.cupe div:nth-child(2){
+background-image:url(images/2.jpg);
+top:60px;
+transform-origin:top;
+transform: rotateX(-90deg);
+}
+.cupe div:nth-child(3){
+background-image:url(images/3.jpg);
+left:-60px;
+transform-origin:right;
+transform: rotateY(-90deg);
+}
+.cupe div:nth-child(4){
+background-image:url(images/4.jpg);
+left:60px;
+transform-origin:left;
+transform: rotateY(90deg);
+}
+.cupe div:nth-child(5){
+background-image:url(images/5.jpg);
+transform:translateZ(-60px);
+}
+.cupe div:nth-child(6){
+background-image:url(images/6.jpg);
+}
+</style>
+<script>
+window.onload = function()
+{
+var oCanv = document.getElementsByClassName('canv')[0];
+
+for(var i=0;i<36;i++){
+
+var oDiv = document.createElement('div');
+      oDiv.className = 'son';
+      oDiv.style.transform='rotateY('+i*10+'deg) rotateZ(45deg) translateX(30px)';
+      oCanv.appendChild(oDiv);
+}
+}
+</script>
+</head>
+
+<body>
+<div class='canv'>
+<div class='cupe'>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
+</body>
+</html>
